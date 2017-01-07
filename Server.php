@@ -26,6 +26,8 @@
 			$emp->email = $_POST['email'];
 			$emp->salary = $_POST['sal'];
 			$emp->id = $emp->updateEmp();
+			$jsondata = json_encode($emp);
+			echo $jsondata;
 		}
 		else{
 			$emp = new Emp();
@@ -33,6 +35,9 @@
 			$emp->email = $_POST['email'];
 			$emp->salary = $_POST['sal'];
 			$emp->id = $emp->createEmp();
+			$employees = new Emp($emp->id);
+			$jsondata = json_encode($employees);
+			echo $jsondata;
 		}
 	}
 ?>
